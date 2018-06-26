@@ -1,44 +1,30 @@
 import { combineReducers } from 'redux';
-import { reducer as reduxAsyncReducer } from 'redux-connect';
+import { routerReducer } from 'react-router-redux';
 
 import {
-  actions as gamesActions,
-  actionTypes as gamesActionTypes,
-  selectors as gamesSelectors,
-  reducers as gamesReducers
-} from './games';
+  actions as songsActions,
+  selectors as songsSelectors,
+  reducers as songsReducers
+} from './songs';
 
 import {
-  actions as uiActions,
-  actionTypes as uiActionTypes,
-  selectors as uiSelectors,
-  reducers as uiReducers
-} from './ui';
+  actions as usersActions,
+  selectors as usersSelectors,
+  reducers as usersReducers
+} from './users';
 
-const actions = {
-  ...gamesActions,
-  ...uiActions
-};
-
-const actionTypes = {
-  ...gamesActionTypes,
-  ...uiActionTypes
-};
-
-const selectors = {
-  ...gamesSelectors,
-  ...uiSelectors
-};
-
-const reducers = combineReducers({
-  games: gamesReducers,
-  ui: uiReducers,
-  reduxAsyncConnect: reduxAsyncReducer
+export const reducers = combineReducers({
+  songs: songsReducers,
+  users: usersReducers,
+  routing: routerReducer
 });
 
-export {
-  actionTypes,
-  actions,
-  reducers,
-  selectors
+export const actions = {
+  ...songsActions,
+  ...usersActions
+};
+
+export const selectors = {
+  ...songsSelectors,
+  ...usersSelectors
 };

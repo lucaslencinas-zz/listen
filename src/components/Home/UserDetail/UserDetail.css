@@ -1,0 +1,14 @@
+.user-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+}
+
+.user img {
+  height: 200px;
+  width: 200px;
+}
